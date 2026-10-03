@@ -1,0 +1,24 @@
+[package]
+name = "slide-captcha-rs"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "Apache-2.0"
+authors = ["kk"]
+description = "Rust 滑块验证码库，支持滑动与拖拽"
+repository = "https://github.com/kk-418/slide-captcha-rs"
+homepage = "https://github.com/kk-418/slide-captcha-rs"
+documentation = "https://docs.rs/slide-captcha-rs"
+readme = "README.md"
+keywords = ["captcha", "slider", "puzzle", "security", "image"]
+categories = ["multimedia::images", "web-programming"]
+
+[dependencies]
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+rand = "0.9"
+thiserror = "2"
+base64 = "0.22"
+serde = { version = "1", features = ["derive"] }
+
+[lints.rust]
+unsafe_code = "forbid"
