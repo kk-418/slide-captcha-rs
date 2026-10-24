@@ -11,6 +11,7 @@ pub(crate) struct Options {
     pub range_graph_angle_pos: Vec<RangeVal>,
     pub gen_graph_number: u32,
     pub enable_graph_vertical_random: bool,
+    pub graph_vertical_separation: bool,
     pub range_dead_zone_directions: Vec<DeadZoneDirection>,
 }
 
@@ -26,6 +27,7 @@ impl Options {
             range_graph_angle_pos: vec![RangeVal { min: 0, max: 0 }],
             gen_graph_number: 1,
             enable_graph_vertical_random: false,
+            graph_vertical_separation: false,
             range_dead_zone_directions: vec![
                 DeadZoneDirection::Left,
                 DeadZoneDirection::Right,
@@ -105,6 +107,15 @@ pub fn with_gen_graph_number(val: u32) -> OptionFn {
 pub fn with_enable_graph_vertical_random(val: bool) -> OptionFn {
     OptionFn::new(move |opts| {
         opts.enable_graph_vertical_random = val;
+    })
+}
+
+/// When true, extra graphs are placed so their vertical interval `[y, y+h)`
+/// does not overlap the target graph. Default: `false`.
+#[must_use]
+pub fn with_graph_vertical_separation(val: bool) -> OptionFn {
+    OptionFn::new(move |opts| {
+        opts.graph_vertical_separation = val;
     })
 }
 

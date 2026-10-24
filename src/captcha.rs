@@ -103,6 +103,12 @@ pub struct Captcha {
 }
 
 impl Captcha {
+    /// Places hole blocks without rendering images.
+    pub fn generate_graph_blocks(&self) -> Result<Vec<Block>> {
+        let mut rng = rand::rng();
+        Ok(self.gen_graph_blocks(&mut rng)?.0)
+    }
+
     /// Generates one CAPTCHA: master JPEG, tile PNG, and block metadata.
     pub fn generate(&self) -> Result<CaptchaData> {
         self.check()?;
@@ -367,4 +373,20 @@ fn choose<'a, T, R: Rng>(items: &'a [T], rng: &mut R) -> Option<&'a T> {
         return None;
     }
     items.get(rng.random_range(0..items.len()))
+}
+
+/// Picks Y for an extra graph so `[y, y + graph_h)` does not overlap
+/// `[target_y, target_y + graph_h)`. The result stays in `[min_y, max_y]`.
+///
+/// Both bands available: one side is chosen at random.
+/// Only one band available: that band is used.
+/// Neither band available: `target_y` (same row).
+pub fn graph_vertical_y<R: Rng>(
+    _rng: &mut R,
+    _target_y: i32,
+    _graph_h: i32,
+    _min_y: i32,
+    _max_y: i32,
+) -> i32 {
+    todo!()
 }

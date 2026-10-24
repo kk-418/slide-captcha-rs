@@ -13,12 +13,12 @@ mod resource;
 mod types;
 mod validate;
 
-pub use captcha::{Builder, Captcha, CaptchaData, EncodedImage};
+pub use captcha::{Builder, Captcha, CaptchaData, EncodedImage, graph_vertical_y};
 pub use error::Error;
 pub use options::{
-    OptionFn, with_enable_graph_vertical_random, with_gen_graph_number, with_image_alpha,
-    with_image_size, with_range_dead_zone_directions, with_range_graph_angle_pos,
-    with_range_graph_size,
+    OptionFn, with_enable_graph_vertical_random, with_gen_graph_number,
+    with_graph_vertical_separation, with_image_alpha, with_image_size,
+    with_range_dead_zone_directions, with_range_graph_angle_pos, with_range_graph_size,
 };
 pub use resource::{GraphImage, ResourceFn, with_backgrounds, with_graph_images};
 pub use types::{Block, DeadZoneDirection, Mode, Point, RangeVal, Size};
