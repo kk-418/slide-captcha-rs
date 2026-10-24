@@ -67,6 +67,7 @@ let captcha = Builder::new()
 | `with_range_graph_angle_pos` | 0..=0 | 旋转角范围（v0.1 不旋转） |
 | `with_gen_graph_number` | 1 | 主图上绘制的缺口数量 |
 | `with_enable_graph_vertical_random` | `false` | 多缺口时是否各自随机 Y |
+| `with_graph_vertical_separation` | `false` | 多缺口时干扰缺口与目标缺口纵向不重叠 |
 | `with_range_dead_zone_directions` | 四边 | 死区方向；Basic 模式强制为 Left |
 
 资源：
